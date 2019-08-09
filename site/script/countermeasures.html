@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Countermeasures | Primer on replication, preregistration and open science through browser-based experiments in _magpie</title>
+  <meta name="description" content="This is the material for a course on implementation, design and deployment of browser-based experiments using _magpie, as part of ESSLLI 2019 (Riga, Latvia)." />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Countermeasures | Primer on replication, preregistration and open science through browser-based experiments in _magpie" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the material for a course on implementation, design and deployment of browser-based experiments using _magpie, as part of ESSLLI 2019 (Riga, Latvia)." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Countermeasures | Primer on replication, preregistration and open science through browser-based experiments in _magpie" />
+  
+  <meta name="twitter:description" content="This is the material for a course on implementation, design and deployment of browser-based experiments using _magpie, as part of ESSLLI 2019 (Riga, Latvia)." />
+  
+
+<meta name="author" content="Michael Franke" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="empirical-research.html">
+<link rel="next" href="version-control-with-git.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Open science with _magpie</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About this book</a></li>
+<li class="chapter" data-level="2" data-path="empirical-research.html"><a href="empirical-research.html"><i class="fa fa-check"></i><b>2</b> Potential problems with empirical science</a><ul>
+<li class="chapter" data-level="2.1" data-path="empirical-research.html"><a href="empirical-research.html#objective-evidence"><i class="fa fa-check"></i><b>2.1</b> Objective evidence</a></li>
+<li class="chapter" data-level="2.2" data-path="empirical-research.html"><a href="empirical-research.html#observation-vs.-manipulation"><i class="fa fa-check"></i><b>2.2</b> Observation vs. manipulation</a></li>
+<li class="chapter" data-level="2.3" data-path="empirical-research.html"><a href="empirical-research.html#the-publication-generating-process"><i class="fa fa-check"></i><b>2.3</b> The publication-generating process</a></li>
+<li class="chapter" data-level="2.4" data-path="empirical-research.html"><a href="empirical-research.html#researcher-degrees-of-freedom"><i class="fa fa-check"></i><b>2.4</b> Researcher degrees of freedom</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="countermeasures.html"><a href="countermeasures.html"><i class="fa fa-check"></i><b>3</b> Countermeasures</a><ul>
+<li class="chapter" data-level="3.1" data-path="countermeasures.html"><a href="countermeasures.html#direct-replication"><i class="fa fa-check"></i><b>3.1</b> Direct replication</a></li>
+<li class="chapter" data-level="3.2" data-path="countermeasures.html"><a href="countermeasures.html#preregistration"><i class="fa fa-check"></i><b>3.2</b> Preregistration</a></li>
+<li class="chapter" data-level="3.3" data-path="countermeasures.html"><a href="countermeasures.html#open-science"><i class="fa fa-check"></i><b>3.3</b> Open Science</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="version-control-with-git.html"><a href="version-control-with-git.html"><i class="fa fa-check"></i><b>4</b> Version control with <code>git</code></a></li>
+<li class="chapter" data-level="5" data-path="basics-of-magpie.html"><a href="basics-of-magpie.html"><i class="fa fa-check"></i><b>5</b> Basics of _magpie</a></li>
+<li class="chapter" data-level="6" data-path="case-study-the-adams-family.html"><a href="case-study-the-adams-family.html"><i class="fa fa-check"></i><b>6</b> Case study: “The Adams family”</a></li>
+<li class="chapter" data-level="7" data-path="deployment-of-magpie-experiments.html"><a href="deployment-of-magpie-experiments.html"><i class="fa fa-check"></i><b>7</b> Deployment of _magpie experiments</a></li>
+<li class="chapter" data-level="8" data-path="advanced-features-of-magpie.html"><a href="advanced-features-of-magpie.html"><i class="fa fa-check"></i><b>8</b> Advanced features of _magpie</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Primer on replication, preregistration and open science through browser-based experiments in _magpie</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="countermeasures" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Countermeasures</h1>
+<p>Nothing will ever completely rule out the possibility that honest researchers make mistakes, or that fraudulent researchers cheat. But there are possibilities to make it harder to cheat, easier to detect cheating and, most importantly, to create awareness of the pitfalls of bad research practices, so that the majority of honest researchers is prevented from accumulating false knowledge based on honest mistakes.</p>
+<p>Three powerful methods for raising awareness and minimizing the harmful effects of bad scientific practices are: direct replication, preregistration and open science.</p>
+<div id="direct-replication" class="section level2">
+<h2><span class="header-section-number">3.1</span> Direct replication</h2>
+<p>No matter how carefully done, we can never be certain that a research finding is true. This is inherent in the nature of a chance event. Collecting empirical data is observing the outcome of a chance event. Every once in a while, we will, by stochastic necessity, observe something quite extraordinary. Every once in a while, the extraordinary observation nicely supports a beautiful, but false, theory. A false research finding is the result.</p>
+<p>But if we repeat the experiment that led to the extraordinary observation, chances are that the new experimental data will not be extraordinary (regression to the mean). Chances are that it does not support the beautiful, but false theory.</p>
+<p>This is why a society of careful scientists will wish to maximally scrutinize every important research result by <strong>direct replication</strong>. Direct replication tries to recreate the exact conditions <em>C</em> from a previous experiment believed necessary for effect <em>X</em> and tests whether <em>X</em> is observed in a new experiment which implements <em>C</em>.</p>
+<p>Direct replication contrasts with <strong>conceptual replication</strong>. Conceptual replication examines predictions of a general idea which was previously tested in one scenario in a different setting. Conceptual replication is much more wide-spread, it is important to our knowledge gain, and it, too, helps to a certain extent avoid long-term belief in false theory. But to rule out accidental false positives, or other pitfalls of dubious empirical research, direct replication is key.</p>
+<p>Unfortunately, conducting direct replications is much less conducive of building a reputation as a world-class scientist. Direct replication explore no novel territory, and they either produce “what we already knew” (but did we really?) or come accross as a destructive force of an aggressive methodological elite.</p>
+<p>Two obvious ways forward are these. Firstly, society can change its evaluation of direct replication. This is already starting to happen, with research funds dedicated to (direct) replication studies. Secondly, <strong>direct replication can be a key ingredient of science education</strong>. Just like every new generation of careful thinkers must heavily doubt and scrutinize the theoretical constructs deliver to them by the past, so should they pick up their role as a “clean-up squat” in the data-domain. When the goal is acquisition of skills in the implementation and execution of an experimental study, a direct replication takes away the burden to come up with an interesting research question and a clever design. Moreover, when young students read an experimental paper with the goal of direct replication, they will probably have a completely new reading experience: the level of critical depth and inquisitiveness necessary for direct replication far exceeds how we would normally just skim the Methods &amp; Results sections to get to the Discussion as soon as possible.</p>
+</div>
+<div id="preregistration" class="section level2">
+<h2><span class="header-section-number">3.2</span> Preregistration</h2>
+<p>It is an old idea that, in order to reduce <em>researcher degrees of freedom</em><a href="advanced-features-of-magpie.html#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, empirical studies should be preregistered.</p>
+<p>A strict way of preregistering a study, is in the form of so-called <strong>peer-reviewed registered reports</strong>, where researchers submit a detailed plan for their study <em>before</em> data collection and anlaysis to a journal. The plan is peer-reviewed and judged. When accepeted, researchers carry out the data collection, perform the analysis, write the whole paper, which is then (almost) automatically accepted, no matter whether the data shows the theoretically anticipated effects or not.</p>
+<p>Since, unfortunately, not many journals accept peer-reviewed registered reports, a less strict, but still very useful form of preregistration works as follows. <em>Before</em> data collection, researchers write a preregistration report, post it publically (for example on the platform of the <a href="https://osf.io">open science foundation</a>), and then refer to this public pre-commitment in the final paper. The preregistration report is as detailed as possible. The more researcher degrees of freedom are eliminated, the better. It should include:</p>
+<ul>
+<li>concice theoretical background</li>
+<li>the reseach hypotheses to be tested</li>
+<li>the experimental design
+<ul>
+<li>if possible, upload also all material and the experiment itself</li>
+</ul></li>
+<li>details about data collection
+<ul>
+<li>participant pool, number of participants to recruit, …</li>
+</ul></li>
+<li>data prepocessing
+<ul>
+<li>exclusion criteria, replacement criteria, methods of aggregation, …</li>
+</ul></li>
+<li>data analysis
+<ul>
+<li>ideally, upload a script with the exact analysis you plan to conduct</li>
+</ul></li>
+</ul>
+<p>If a preregistration report does not rule out all researcher degrees of freedom (how could it?), it is still better than no preregistration report at all.</p>
+</div>
+<div id="open-science" class="section level2">
+<h2><span class="header-section-number">3.3</span> Open Science</h2>
+<p>Science is a collaborative enterprise. No single mind suffices to do all of the work. This is not an exercise in outsmarting others. Its an exercise in collective accummulation of knowledge. Mistakes occurr, and we need others to spot the errors made. This requires openness, ideally as early as during peer-review. Openness entails making available:</p>
+<ul>
+<li>(anonymized) raw data
+<ul>
+<li>ideally: with explanation of what it all means</li>
+</ul></li>
+<li>scripts for data processing and the processed data
+<ul>
+<li>ideally: well commented</li>
+</ul></li>
+<li>scripts for data analysis
+<ul>
+<li>ideally: well commented</li>
+</ul></li>
+<li>the experimental material, possibly the experiment code itself</li>
+</ul>
+<p>There can always be good reasons why sharing is not possible (for a while). Sensitive data or copyrights come to mind. Still, as with preregistration, as much as can be shared should be shared in the interest of transparency and maximal error control.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="empirical-research.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="version-control-with-git.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "static"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -41,5 +41,15 @@ If a preregistration report does not rule out all researcher degrees of freedom 
 
 ## Open Science
 
+Science is a collaborative enterprise. No single mind suffices to do all of the work. This is not an exercise in outsmarting others. Its an exercise in collective accummulation of knowledge. Mistakes occurr, and we need others to spot the errors made. This requires openness, ideally as early as during peer-review. Openness entails making available:
 
+- (anonymized) raw data
+  - ideally: with explanation of what it all means
+- scripts for data processing and the processed data
+  - ideally: well commented
+- scripts for data analysis
+  - ideally: well commented
+- the experimental material, possibly the experiment code itself
+
+There can always be good reasons why sharing is not possible (for a while). Sensitive data or copyrights come to mind. Still, as with preregistration, as much as can be shared should be shared in the interest of transparency and maximal error control.
 

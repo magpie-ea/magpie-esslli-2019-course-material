@@ -1,3 +1,3 @@
-# Methods
+# Version control with `git`
 
-We describe our methods in this chapter.
+- briefly introduce `git` and its use in collaborative projects

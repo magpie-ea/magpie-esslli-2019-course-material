@@ -1,0 +1,6 @@
+# Advanced features of _magpie
+
+- life cycles & hooks
+- custom views
+
+
