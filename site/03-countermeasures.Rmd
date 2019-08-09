@@ -6,7 +6,7 @@ Three powerful methods for raising awareness and minimizing the harmful effects 
 
 ## Direct replication
 
-No matter how carefully done, we can never be certain that a research finding is true. This is inherent in the nature of a chance event. Collecting empirical data is observing the outcome of a chance event. Every once in a while, we will, by stochastic necessity, observe something quite extraordinary. Every once in a while, the extraordinary observation nicely supports a beautiful, but false, theory. A false research finding is the result. 
+No matter how carefully done, we can never be certain that a research finding is true. This is inherent in the nature of a chance event. Collecting empirical data is observing the outcome of a chance event. Every once in a while, we will, by stochastic necessity, observe something quite extraordinary. Every once in a while, the extraordinary observation nicely supports a beautiful, but false, theory. A false research finding is the result.
 
 But if we repeat the experiment that led to the extraordinary observation, chances are that the new experimental data will not be extraordinary (regression to the mean). Chances are that it does not support the beautiful, but false theory.
 
@@ -14,34 +14,34 @@ This is why a society of careful scientists will wish to maximally scrutinize ev
 
 Direct replication contrasts with **conceptual replication**. Conceptual replication examines predictions of a general idea which was previously tested in one scenario in a different setting. Conceptual replication is much more wide-spread, it is important to our knowledge gain, and it, too, helps to a certain extent avoid long-term belief in false theory. But to rule out accidental false positives, or other pitfalls of dubious empirical research, direct replication is key.
 
-Unfortunately, conducting direct replications is much less conducive of building a reputation as a world-class scientist. Direct replication explore no novel territory, and they either produce "what we already knew" (but did we really?)  or come accross as a destructive force of an aggressive methodological elite.
+Unfortunately, conducting direct replications is much less conducive of building a reputation as a world-class scientist. Direct replications explore no novel territory, and they either produce "what we already knew" (but did we really?)  or come accross as a destructive force of an aggressive methodological elite.
 
-Two obvious ways forward are these. Firstly, society can change its evaluation of direct replication. This is already starting to happen, with research funds dedicated to (direct) replication studies. Secondly, **direct replication can be a key ingredient of science education**. Just like every new generation of careful thinkers must heavily doubt and scrutinize the theoretical constructs deliver to them by the past, so should they pick up their role as a "clean-up squat" in the data-domain. When the goal is acquisition of skills in the implementation and execution of an experimental study, a direct replication takes away the burden to come up with an interesting research question and a clever design. Moreover, when young students read an experimental paper with the goal of direct replication, they will probably have a completely new reading experience: the level of critical depth and inquisitiveness necessary for direct replication far exceeds how we would normally just skim the Methods & Results sections to get to the Discussion as soon as possible.
+Two obvious ways forward are these. Firstly, society can change its evaluation of direct replication. This is already starting to happen, with research funds dedicated to (direct) replication studies. Secondly, **direct replication can be a key ingredient of science education**. Just like every new generation of careful thinkers must heavily doubt and scrutinize the theoretical constructs delivered to them by the past, so should they pick up their role as a "clean-up squad" in the data-domain. When the goal is acquisition of skills in the implementation and execution of an experimental study, a direct replication takes away the burden to come up with an interesting research question and a clever design. Moreover, when young students read an experimental paper with the goal of direct replication, they will probably have a completely new reading experience: the level of critical depth and inquisitiveness necessary for direct replication far exceeds how we would normally just skim the Methods & Results sections to get to the Discussion as soon as possible.
 
 ## Preregistration
 
-It is an old idea that, in order to reduce *researcher degrees of freedom*^[The term "researcher degrees of freedom" refers to the extent to which researchers are at liberty to make decisions that may seem inocuous enough, but that may alter the overal qualitative conclusions. These decisions may often be justifiable. Consider: "Ah, but surely we should exclude *this* guy's data from analysis because it shows clear weirdnesses in the plot, and this guy also behaved very strangely during the lab session, I seem to recall." Or: "If I analyze the data from the Likert rating scale task as ordinal, nothing is significant; but if I treat is as metric, I get more interpretable results."], empirical studies should be preregistered. 
+It is an old idea that, in order to reduce *researcher degrees of freedom*^[The term "researcher degrees of freedom" refers to the extent to which researchers are at liberty to make decisions that may seem innocuous enough, but that may alter the overall qualitative conclusions. These decisions may often be justifiable. Consider: "Ah, but surely we should exclude *this* guy's data from analysis because it shows clear weirdnesses in the plot, and this guy also behaved very strangely during the lab session, I seem to recall." Or: "If I analyze the data from the Likert rating scale task as ordinal, nothing is significant; but if I treat is as metric, I get more interpretable results."], empirical studies should be preregistered.
 
-A strict way of preregistering a study, is in the form of so-called **peer-reviewed registered reports**, where researchers submit a detailed plan for their study *before* data collection and anlaysis to a journal. The plan is peer-reviewed and judged. When accepeted, researchers carry out the data collection, perform the analysis, write the whole paper, which is then (almost) automatically accepted, no matter whether the data shows the theoretically anticipated effects or not.
+A strict way of preregistering a study, is in the form of so-called **peer-reviewed registered reports**, where researchers submit a detailed plan for their study *before* data collection and analysis to a journal. The plan is peer-reviewed and judged. When accepted, researchers carry out the data collection, perform the analysis, write the whole paper, which is then (almost) automatically accepted, no matter whether the data shows the theoretically anticipated effects or not.
 
 Since, unfortunately, not many journals accept peer-reviewed registered reports, a less strict, but still very useful form of preregistration works as follows. *Before* data collection, researchers write a preregistration report, post it publically (for example on the platform of the [open science foundation](https://osf.io)), and then refer to this public pre-commitment in the final paper. The preregistration report is as detailed as possible. The more researcher degrees of freedom are eliminated, the better. It should include:
 
-- concice theoretical background
-- the reseach hypotheses to be tested
+- concise theoretical background
+- the research hypotheses to be tested
 - the experimental design
   - if possible, upload also all material and the experiment itself
 - details about data collection
   - participant pool, number of participants to recruit, ...
-- data prepocessing
+- data preprocessing
   - exclusion criteria, replacement criteria, methods of aggregation, ...
 - data analysis
   - ideally, upload a script with the exact analysis you plan to conduct
-  
-If a preregistration report does not rule out all researcher degrees of freedom (how could it?), it is still better than no preregistration report at all. 
+
+If a preregistration report does not rule out all researcher degrees of freedom (how could it?), it is still better than no preregistration report at all.
 
 ## Open Science
 
-Science is a collaborative enterprise. No single mind suffices to do all of the work. This is not an exercise in outsmarting others. Its an exercise in collective accummulation of knowledge. Mistakes occurr, and we need others to spot the errors made. This requires openness, ideally as early as during peer-review. Openness entails making available:
+Science is a collaborative enterprise. No single mind suffices to do all of the work. This is not an exercise in outsmarting others. It's an exercise in collective accumulation of knowledge. Mistakes occur, and we need others to spot the errors made. This requires openness, ideally as early as during peer-review. Openness entails making available:
 
 - (anonymized) raw data
   - ideally: with explanation of what it all means
@@ -51,5 +51,4 @@ Science is a collaborative enterprise. No single mind suffices to do all of the 
   - ideally: well commented
 - the experimental material, possibly the experiment code itself
 
-There can always be good reasons why sharing is not possible (for a while). Sensitive data or copyrights come to mind. Still, as with preregistration, as much as can be shared should be shared in the interest of transparency and maximal error control.
-
+There can always be good reasons why sharing is not possible (for a while). Sensitive data or copyright come to mind. Still, as with preregistration, as much as can be shared should be shared in the interest of transparency and maximal error control.
