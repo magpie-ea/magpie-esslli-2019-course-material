@@ -1,0 +1,70 @@
+# Potential problems with empirical science {#empirical-research}
+
+Let's look at some fictitious case studies (_science fiction_ if you wish). We will use
+them to remind ourselves of the benefits of experimental methods and of the perils of naivety
+about their limitations.
+
+## Objective evidence
+
+Smith has talked to a lot of people during the last 10 years and made extensive notes. He
+claims that using the right toothpaste makes you smarter. Smith knows this because he talked to
+a lot of people and made extensive notes. 
+
+**Q:** Why do we not believe him?
+
+## Observation vs. manipulation
+
+Smith subjected 700 people to an IQ test. He also recorded for each participant which
+toothpaste they use regularly. (There are only two brands: *bling* and *shiny*.)
+Here's a visualization of his data:
+
+```{r toothpaste-fig, echo = F, warnings = F, message=F, fig.cap='Distribution of IQ-scores for different brands of toothpaste!', out.width='80%', fig.asp=.75, fig.align='center'}
+library(tidyverse)
+
+set.seed(1978)
+
+## no manipulation
+
+d = tibble(
+  bling = rnorm(350, 95, 15),
+  shiny = rnorm(350, 110, 15)
+) %>% 
+  gather(key = "toothpaste", value = "IQ")
+
+ggplot(d, aes(x = toothpaste, y = IQ)) + 
+  geom_violin() +
+  geom_jitter(width = 0.05, alpha = 0.2, color = "firebrick") +
+  theme_classic()
+```
+
+
+
+A statistical test reveals that there is a significant difference between the two groups of
+toothpaste users. Smith publishes a paper with the title: ``*shiny* makes you smart.'' 
+
+**Q:** Why do you strongly dislike this paper?
+
+## The publication-generating process
+
+Smith recruited 50 participants. Each used one brand of toothpaste for 4 weeks before taking an
+IQ test. A statistical test reveals that there is significant difference between the two
+groups. Smith submits a research paper with the title ``You are what you brush: *shiny*
+makes you smart.'' to a top-tier journal.
+
+Meanwhile, another researcher, Jones, has independently carried out the same experiment. A statistical test on Jones' data reveals no significant difference between groups. Jones still submits a research paper to a top-tier journal with the title ``Expect the expected: toothpaste does not influence IQ scores.''
+
+Three months later, Smith's paper gets published, Jones' doesn't. 
+
+**Q:** Do you think that something like this could happen in reality? If so, why would this be disturbing?
+
+
+## Researcher degrees of freedom
+
+Jones is frustrated by the rejection. She looks at her data again. She realizes that toothpaste
+*does* have a significant effect on IQ scores after all, but only for right-handed participants
+and the subset of IQ-questions related to language. She also realizes that this ties in with
+Prof. Brainstawn's work on lateralization. She submits a paper to a different journal. The
+paper is accepted as: ``Brush up your language the right way: toothpaste influences on IQ and
+lateralization in the brain.'' 
+
+**Q:** Why is this bad for science?
