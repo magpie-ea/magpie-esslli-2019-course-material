@@ -1,3 +1,65 @@
-# Case study: "The Adams family"
+# Case study on acceptability of indicative conditionals
 
-Fill me.
+## Theoretical background
+
+Adams famously proposed that the assertability of a conditional sentence $P \rightarrow Q$ is given by the conditional probability $P(Q \mid P)$ on some probability distribution representing the uncertainty of the speaker or of the interlocutors' combined [@Adams1975:The-Logic-of-Co]. @Jackson1987:Conditionals proposed a reformulation, namely that **the acceptability of a conditional $P \rightarrow Q$ is given by the conditional probability $P(Q \mid P)$**. We call this idea Adams' thesis (AT).
+
+## "The Adams family"
+
+### Design & Materials
+
+@DouvenVerbrugge2010:The-Adams-famil seek to test Adams' thesis experimentally. Towards this end, they present participants with 30 vignettes, each containing a context and a conditional statement. Here is one example:
+
+- **Context:**  All students in class 6C have at least a B for their math test paper.
+- **Statement:** If Ben is in class 6C, then he has at least a B for his math test paper.
+
+They then measured, in a between-subjects manipulation spread across three different experiments, how participants rate the statements according to four different kinds of questions, targeted at measuring different theoretical constructs:
+
+1. **Acceptability:** Participants were asked: "*How acceptable is this statement in the given context?*" 
+2. **Reasonable belief:** Participants were asked: "*How reasonable is it to believe this statement in the given context?*" 
+3. **Probability of truth of conditional:** Participants were asked: "*How probable is it that this statement is true in the given context?*" 
+
+The fourth measure, had a slightly different shape:
+
+4. **Conditional probability:** The context included additionally the clause "Suppose that $P$ is true." and the statement to be rated was just the consequent $Q$. Participants were then asked: "*How acceptable is this statement in the given context?*" 
+
+Of the 30 vignettes, a triplet of 10 vignettes each instantiated one of three types of conditional sentences, namely deductive, inductive and abductive conditionals.
+
+### Hypotheses & statistical analyses
+
+Adams' thesis is interpreted as a statement about the measures of "acceptability" and "conditional probability". Douven & Verbrugge consider a sequence of ever milder variations on AT, namely:
+
+- **AT-strong**: $Ac(P \rightarrow Q) = P(Q \mid P)$
+- **AT-approximate**: $Ac(P \rightarrow Q) \approx P(Q \mid P)$
+- **AT-categorical**: $Ac(P \rightarrow Q)$ is high/middling/low iff $P(Q \mid P)$ is high/middling/low
+- **AT-correlation-strong**: $Ac(P \rightarrow Q)$ highly correlates with $P(Q \mid P)$
+- **AT-correlation-weak**: $Ac(P \rightarrow Q)$ at least moderately correlates with $P(Q \mid P)$
+
+We will focus in the following on **AT-approximate** and **AT-correlation-weak** .
+
+Moreover, Douven & Verbrugge hypothesize that, according to AT, we would not expect any differences between different types of conditionals.
+
+In sum, we have two main hypotheses, each with a subordinate hypothesis, which the paper addresses as follows with statistical tests:
+
+- **H1 :: AT-approximate:** There is no difference between ratings given for the "acceptability" and those given for the "conditional probability" condition. The paper tests this in the form of a main effect of GROUP in an ANOVA with factors GROUP (which question was answered) and COND-TYPE (which type of conditional sentence was rated).
+  - **H1-types**: Since AT predicts no differences between types of conditionals, there should be no main effect of COND-TYPE or an interaction between GROUP and COND-TYPE. 
+- **H2 :: AT-correlation-weak:** There is a positive correlation between average ratings for the "acceptability" ratings and the "conditional probability" ratings (two averaged measures for each of the 30 vignettes, compared against each other). The paper addresses this by a correlation test.
+  - **H2-types**: Since AT predicts no differences between types of conditionals, there should be no difference in correlation tests when we look at each type of conditional in isolation.
+
+### Results
+
+@DouvenVerbrugge2010:The-Adams-famil report data that discredits Adams' thesis, at least under strong and encompassing interpretations. As for H1 and H1-types, they report a main effect of GROUP (rating "acceptability" vs rating "conditional probability"), a significant main effect of COND-TYPE and a significant interaction between the two (their Experiment 1). This result is visually discernible in the plot below, taken from @DouvenVerbrugge2010:The-Adams-famil, where data from ratings of "probability of truth of conditional" (see above) are also plotted.
+
+
+```{r, echo = F, out.width = '60%', fig.align='center'}
+knitr::include_graphics('pics/Douven-Verbrugge-2010-Fig2.png')
+```
+
+@DouvenVerbrugge2010:The-Adams-famil also report a significant correlation, in general support of H2, but note that H2-types is cast into doubt because the interaction on the data with only inductive conditions is, though significant, less pronounced ($R = .65$, compared to $R = .81$ and $R = .88$ for abductive and deductive conditionals respectively).
+
+## Replication of @DouvenVerbrugge2010:The-Adams-famil
+
+The following is an example preregistration report, a version of which is also available online 
+
+
+
