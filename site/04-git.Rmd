@@ -1,16 +1,26 @@
 # Version control with `git`
 
+## A plea for tidiness during collaboration
+
 Experimental work is usually done in a team. When you work with others (and this usually includes past and future versions of yourself) it is good practice to be tidy. You want to be able to access the latest version of your work immediately. You want to be able to work in parallel, without corrupting your teammates' work. When conflicts arise, you want to solve them easily.
 
 What you should not do, at least if you want to work with me, is send files per email, or have a shared Dropbox folder that looks like this ("aktuelle_version" means "current version"):
-
 
 ```{r, echo = FALSE, out.width="70%", fig.align='center'}
 knitr::include_graphics("pics/folder_structure_bad_example.png")
 ```
 
+A tidy folder structure instead could look like this:
 
-A much better solution for tidy cooperationi is to use a **version control system**. A currently very popular instance of VC is `git`. There are many great introductions to `git`, textbased and videos. Have your pick! There are GUIs and Apps for your smartphone. That's impressive, but I recommend using the command line, or built-in functions in your favorite text editor.
+```{r, echo = FALSE, out.width="100%", fig.align='center'}
+knitr::include_graphics("pics/folder_structure_good_example.png")
+```
+
+Ideally, you document (if only for your future self) which folder contains what, e.g., using a light-weight language like [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
+
+## Minimal `git`
+
+On top of a clean, and well documented folder structure, using a **version control system** is an excellent idea to boost efficient cooperation (once more: including cooperation with your future self). A currently very popular instance of VC is `git`. There are many great introductions to `git`, textbased and videos. Have your pick! There are GUIs and Apps for your smartphone. That's impressive, but I recommend using the command line, or built-in functions in your favorite text editor.
 
 The most important thing you need to know about `git` for this course, is that `git` keeps a remote copy and as many local copies as you want of the complete history of your project, called **repository**. When you make changes locally during your work, you first tell your local repository that these changes are to stay for good: you "commit to them". When you start working you first "synchronize" your local copy of the repository with the remote, by "pulling" the latest changes to your own machine.
 
@@ -29,15 +39,19 @@ knitr::include_graphics("pics/git_basic_notions.png")
 ```
 
 
-## Working with a local repository
+## Learning by doing
 
-### Creating a repository
+Here's an extended `git` exercise that visits the most basic, and some more advanced features of `git`. Try to carry it out step by step on your own.
+
+### Working with a local repository
+
+#### Creating a repository
 
 - open a command line tool
 - create a folder of your choice
   - e.g., `mkdir my_first_git`
   
-### Adding a file
+#### Adding a file
 
 - go to this directory and initialize
   - e.g., `cd my_first_git && git init`
@@ -52,13 +66,13 @@ knitr::include_graphics("pics/git_basic_notions.png")
 - inspect the status with `git status` again
 - look at the log history of your repo with `git log`
 
-### Add another file
+#### Add another file
 
 - create another file called `mynotes_2.md`
 - fill in some content of your choice
 - add it to version control using the same procedure as before
 
-### Seeing current changes
+#### Seeing current changes
 
 - make some edits to `mynotes.md`
   - add text in some lines
@@ -69,14 +83,14 @@ knitr::include_graphics("pics/git_basic_notions.png")
  - commit these changes
 - type `git diff mynotes.md` again
 
-### Seeing changes between commits
+#### Seeing changes between commits
 
 - you can see what changed **in all files** from COMMIT-1 to COMMIT-2 by typing `git diff mynotes.md COMMIT-1 COMMIT-2`
   - here COMMIT-x is the commit ID (which you find in the output of `git log`)
 - zoom in on changes in file `mynotes.md` with `git diff mynotes.md COMMIT-1 COMMIT-2 -- mynotes.md`
 - type `git log -p mynotes.md` to get a full change history of file `mynotes.md`
 
-### Undoing staging
+#### Undoing staging
 
 - make changes to your file `mynotes.md`
 - stage the changes with `git add mynotes.md`
@@ -85,25 +99,25 @@ knitr::include_graphics("pics/git_basic_notions.png")
 - look at `git status` again
 - check whether your changes got lost (using what you learned above)
 
-### Undoing local changes
+#### Undoing local changes
 
-#### Single files
+##### Single files
 
 - type `git checkout mynotes.md` to undo your recent local changes
 - check the status and the diff between local file and last commit
 
-#### Whole repo
+##### Whole repo
 
 - change both of your files & inspect the status
 - type `git reset --hard` to undo all local changes
 - inspect status to verify
 
-### Going back in time
+#### Going back in time
 
 - retrieve the (shortened) commit ID of your first commit by `git log --oneline`
 - type `git checkout FIRST-COMMIT-ID` to roll back complete to where you were in the beginning
 
-### Branching
+#### Branching
 
 - so far our history of developments was linear; it's time to change that
 - create a new branch with `git branch silly_try`
@@ -115,7 +129,7 @@ knitr::include_graphics("pics/git_basic_notions.png")
   - we now live in a branching-time universe
   - different developments of your project live next to each other
    
-### Merging
+#### Merging
 
 - we will now parallel universes together
 - switch back to the master branch with `git checkout master`
@@ -127,21 +141,21 @@ knitr::include_graphics("pics/git_basic_notions.png")
 - have a look at your history with `git log --graph --oneline --all`
 
 
-### Resolving merge conflicts
+#### Resolving merge conflicts
 
 - when a conflict occurs and git cannot merge automatically, it creates a new file in which both changes are kept side by side
 - the user must then decide by hand which changes to keep or how to merge
 - use will find tools of your taste for doing this by searching the internet
 
-## Working with a remote repository
+### Working with a remote repository
 
-### Creating and linking the remote repository
+#### Creating and linking the remote repository
 
 - create a remote repository, e.g., on GitHub
 - link your local repo to the global one with `git remote add origin YOUR-REPO-URL`
   - now `origin` is the name for your remote repo
 
-### Pushing and pulling
+#### Pushing and pulling
 
 - **pushing** is when you "upload" local changes
 - **pulling** is when you "download" remote changes
