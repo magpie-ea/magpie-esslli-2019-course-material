@@ -4,17 +4,15 @@ Experimental work is hard. Opportunities for suboptimality and failure abound. T
 
 This is the material for a course taught at ESSLLI 2019 (Riga, Latvia).
 
-![](https://michael-franke.github.io/mfpics/magpie_logo.png)
-
 ## Schedule
 
-session | day | topic | material
+session | topic | material
 :--- | :--- | :--- | :---
-1  | Mon, Aug 11 | open science, git, and \_magpie  | lecture notes Chapters [2](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/empirical-research.html), [3](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/countermeasures.html), and [4](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/version-control-with-git.html)
-2  | Tue, Aug 12 | \_magpie basics | lecture notes Chapter [5](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/basics-of-magpie.html), [quick start guide](https://magpie-ea.github.io/magpie-site/experiments/introduction.html)
-3  | Wed, Aug 13 | case study (on conditionals) | lecture notes Chapter [6](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/case-study-on-acceptability-of-indicative-conditionals.html), [Douven & Verbrugge (2010)](https://www.researchgate.net/publication/47509272_The_Adams_family)
-4  | Thu, Aug 14 | deployment in \_magpie  | lecture notes Chapter [7](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/deployment-of-magpie-experiments.html) 
-5  | Fri, Aug 15 | advanced features of \_magpie | lecture notes Chapter [8](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/advanced-features-of-magpie.html)
+Mon, Aug 11 | open science, git, and \_magpie  | lecture notes Chapters [2](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/empirical-research.html), [3](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/countermeasures.html), and [4](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/version-control-with-git.html)
+Tue, Aug 12 | \_magpie basics | lecture notes Chapter [5](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/basics-of-magpie.html), [quick start guide](https://magpie-ea.github.io/magpie-site/experiments/introduction.html)
+Wed, Aug 13 | case study (on conditionals) | lecture notes Chapter [6](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/case-study-on-acceptability-of-indicative-conditionals.html), [Douven & Verbrugge (2010)](https://www.researchgate.net/publication/47509272_The_Adams_family)
+Thu, Aug 14 | deployment in \_magpie  | lecture notes Chapter [7](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/deployment-of-magpie-experiments.html) 
+Fri, Aug 15 | advanced features of \_magpie | lecture notes Chapter [8](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/advanced-features-of-magpie.html)
 
 
 ## Links & resources
