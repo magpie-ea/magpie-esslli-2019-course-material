@@ -1,3 +1,5 @@
 theme: jekyll-theme-slate
 title: Browser-based experiments in _magpie
 description: Material for course at ESSLLI 2019 (Riga, Latvia)
+github:
+  is_project_page: false
