@@ -1,5 +1,3 @@
-## Primer on replication, preregistration and open science through browser-based experiments in \_magpie
-
 Experimental work is hard. Opportunities for suboptimality and failure abound. This course is all about avoiding pitfalls and cultivating a mindset aimed at continually improving practices. We will execute the whole process of implementation, execution and data analysis during this course, based on a replication of an existing experiment, which we will preregister. We do this using [\_magpie](https://magpie-ea.github.io/magpie-site/index.html), an architecture to help realize browser-based experiments.
 
 This is the material for a course taught at ESSLLI 2019 (Riga, Latvia).
