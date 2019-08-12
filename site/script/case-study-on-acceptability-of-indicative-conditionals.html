@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 8 Advanced features of _magpie | Primer on replication, preregistration and open science through browser-based experiments in _magpie</title>
+  <title>Chapter 6 Case study on acceptability of indicative conditionals | Primer on replication, preregistration and open science through browser-based experiments in _magpie</title>
   <meta name="description" content="This is the material for a course on implementation, design and deployment of browser-based experiments using _magpie, as part of ESSLLI 2019 (Riga, Latvia)." />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 8 Advanced features of _magpie | Primer on replication, preregistration and open science through browser-based experiments in _magpie" />
+  <meta property="og:title" content="Chapter 6 Case study on acceptability of indicative conditionals | Primer on replication, preregistration and open science through browser-based experiments in _magpie" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 8 Advanced features of _magpie | Primer on replication, preregistration and open science through browser-based experiments in _magpie" />
+  <meta name="twitter:title" content="Chapter 6 Case study on acceptability of indicative conditionals | Primer on replication, preregistration and open science through browser-based experiments in _magpie" />
   
   <meta name="twitter:description" content="This is the material for a course on implementation, design and deployment of browser-based experiments using _magpie, as part of ESSLLI 2019 (Riga, Latvia)." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="deployment-of-magpie-experiments.html">
-
+<link rel="prev" href="basics-of-magpie.html">
+<link rel="next" href="deployment-of-magpie-experiments.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -117,38 +117,89 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="advanced-features-of-_magpie" class="section level1">
-<h1><span class="header-section-number">Chapter 8</span> Advanced features of _magpie</h1>
+<div id="case-study-on-acceptability-of-indicative-conditionals" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Case study on acceptability of indicative conditionals</h1>
+<div id="theoretical-background" class="section level2">
+<h2><span class="header-section-number">6.1</span> Theoretical background</h2>
+<p>Adams famously proposed that the assertability of a conditional sentence <span class="math inline">\(P \rightarrow Q\)</span> is given by the conditional probability <span class="math inline">\(P(Q \mid P)\)</span> on some probability distribution representing the uncertainty of the speaker or of the interlocutors’ combined <span class="citation">(Adams <a href="#ref-Adams1975:The-Logic-of-Co">1975</a>)</span>. <span class="citation">Jackson (<a href="#ref-Jackson1987:Conditionals">1987</a>)</span> proposed a reformulation, namely that <strong>the acceptability of a conditional <span class="math inline">\(P \rightarrow Q\)</span> is given by the conditional probability <span class="math inline">\(P(Q \mid P)\)</span></strong>. We call this idea Adams’ thesis (AT).</p>
+</div>
+<div id="the-adams-family" class="section level2">
+<h2><span class="header-section-number">6.2</span> “The Adams family”</h2>
+<div id="design-materials" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Design &amp; Materials</h3>
+<p><span class="citation">Douven and Verbrugge (<a href="#ref-DouvenVerbrugge2010:The-Adams-famil">2010</a>)</span> seek to test Adams’ thesis experimentally. Towards this end, they present participants with 30 vignettes, each containing a context and a conditional statement. Here is one example:</p>
 <ul>
-<li>life cycles &amp; hooks</li>
-<li>custom views</li>
+<li><strong>Context:</strong> All students in class 6C have at least a B for their math test paper.</li>
+<li><strong>Statement:</strong> If Ben is in class 6C, then he has at least a B for his math test paper.</li>
 </ul>
+<p>They then measured, in a between-subjects manipulation spread across three different experiments, how participants rate the statements according to four different kinds of questions, targeted at measuring different theoretical constructs:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Acceptability:</strong> Participants were asked: “<em>How acceptable is this statement in the given context?</em>”</li>
+<li><strong>Reasonable belief:</strong> Participants were asked: “<em>How reasonable is it to believe this statement in the given context?</em>”</li>
+<li><strong>Probability of truth of conditional:</strong> Participants were asked: “<em>How probable is it that this statement is true in the given context?</em>”</li>
+</ol>
+<p>The fourth measure, had a slightly different shape:</p>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Conditional probability:</strong> The context included additionally the clause “Suppose that <span class="math inline">\(P\)</span> is true.” and the statement to be rated was just the consequent <span class="math inline">\(Q\)</span>. Participants were then asked: “<em>How acceptable is this statement in the given context?</em>”</li>
+</ol>
+<p>Of the 30 vignettes, a triplet of 10 vignettes each instantiated one of three types of conditional sentences, namely deductive, inductive and abductive conditionals.</p>
+</div>
+<div id="hypotheses-statistical-analyses" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Hypotheses &amp; statistical analyses</h3>
+<p>Adams’ thesis is interpreted as a statement about the measures of “acceptability” and “conditional probability”. Douven &amp; Verbrugge consider a sequence of ever milder variations on AT, namely:</p>
+<ul>
+<li><strong>AT-strong</strong>: <span class="math inline">\(Ac(P \rightarrow Q) = P(Q \mid P)\)</span></li>
+<li><strong>AT-approximate</strong>: <span class="math inline">\(Ac(P \rightarrow Q) \approx P(Q \mid P)\)</span></li>
+<li><strong>AT-categorical</strong>: <span class="math inline">\(Ac(P \rightarrow Q)\)</span> is high/middling/low iff <span class="math inline">\(P(Q \mid P)\)</span> is high/middling/low</li>
+<li><strong>AT-correlation-strong</strong>: <span class="math inline">\(Ac(P \rightarrow Q)\)</span> highly correlates with <span class="math inline">\(P(Q \mid P)\)</span></li>
+<li><strong>AT-correlation-weak</strong>: <span class="math inline">\(Ac(P \rightarrow Q)\)</span> at least moderately correlates with <span class="math inline">\(P(Q \mid P)\)</span></li>
+</ul>
+<p>We will focus in the following on <strong>AT-approximate</strong> and <strong>AT-correlation-weak</strong> .</p>
+<p>Moreover, Douven &amp; Verbrugge hypothesize that, according to AT, we would not expect any differences between different types of conditionals.</p>
+<p>In sum, we have two main hypotheses, each with a subordinate hypothesis, which the paper addresses as follows with statistical tests:</p>
+<ul>
+<li><strong>H1 :: AT-approximate:</strong> There is no difference between ratings given for the “acceptability” and those given for the “conditional probability” condition. The paper tests this in the form of a main effect of GROUP in an ANOVA with factors GROUP (which question was answered) and COND-TYPE (which type of conditional sentence was rated).
+<ul>
+<li><strong>H1-types</strong>: Since AT predicts no differences between types of conditionals, there should be no main effect of COND-TYPE or an interaction between GROUP and COND-TYPE.</li>
+</ul></li>
+<li><strong>H2 :: AT-correlation-weak:</strong> There is a positive correlation between average ratings for the “acceptability” ratings and the “conditional probability” ratings (two averaged measures for each of the 30 vignettes, compared against each other). The paper addresses this by a correlation test.
+<ul>
+<li><strong>H2-types</strong>: Since AT predicts no differences between types of conditionals, there should be no difference in correlation tests when we look at each type of conditional in isolation.</li>
+</ul></li>
+</ul>
+</div>
+<div id="results" class="section level3">
+<h3><span class="header-section-number">6.2.3</span> Results</h3>
+<p><span class="citation">Douven and Verbrugge (<a href="#ref-DouvenVerbrugge2010:The-Adams-famil">2010</a>)</span> report data that discredits Adams’ thesis, at least under strong and encompassing interpretations. As for H1 and H1-types, they report a main effect of GROUP (rating “acceptability” vs rating “conditional probability”), a significant main effect of COND-TYPE and a significant interaction between the two (their Experiment 1). This result is visually discernible in the plot below, taken from <span class="citation">Douven and Verbrugge (<a href="#ref-DouvenVerbrugge2010:The-Adams-famil">2010</a>)</span>, where data from ratings of “probability of truth of conditional” (see above) are also plotted.</p>
+<p><img src="pics/Douven-Verbrugge-2010-Fig2.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><span class="citation">Douven and Verbrugge (<a href="#ref-DouvenVerbrugge2010:The-Adams-famil">2010</a>)</span> also report a significant correlation, in general support of H2, but note that H2-types is cast into doubt because the interaction on the data with only inductive conditions is, though significant, less pronounced (<span class="math inline">\(R = .65\)</span>, compared to <span class="math inline">\(R = .81\)</span> and <span class="math inline">\(R = .88\)</span> for abductive and deductive conditionals respectively).</p>
+</div>
+</div>
+<div id="replication-of-douvenverbrugge2010the-adams-famil" class="section level2">
+<h2><span class="header-section-number">6.3</span> Replication of <span class="citation">Douven and Verbrugge (<a href="#ref-DouvenVerbrugge2010:The-Adams-famil">2010</a>)</span></h2>
+<p>The following is an example preregistration report, a version of which is also available online</p>
 
+</div>
+</div>
+<h3>References</h3>
 <div id="refs" class="references">
-<div>
+<div id="ref-Adams1975:The-Logic-of-Co">
 <p>Adams, E. W. 1975. <em>The Logic of Conditionals</em>. Dordrecht: Elsevier.</p>
 </div>
-<div>
+<div id="ref-DouvenVerbrugge2010:The-Adams-famil">
 <p>Douven, Igor, and Sara Verbrugge. 2010. “The Adams Family.” <em>Cognition</em> 117: 302–18. <a href="https://doi.org/10.1016/j.cognition.2010.08.015">https://doi.org/10.1016/j.cognition.2010.08.015</a>.</p>
 </div>
-<div>
+<div id="ref-Jackson1987:Conditionals">
 <p>Jackson, F. 1987. <em>Conditionals</em>. Oxford: Blackwell.</p>
 </div>
 </div>
-</div>
-
-
-
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="deployment-of-magpie-experiments.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="basics-of-magpie.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="deployment-of-magpie-experiments.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
