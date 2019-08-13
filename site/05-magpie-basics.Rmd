@@ -28,7 +28,7 @@ npm install
 
 - update the information in the file `README.md`
 
-- download [this catchy photograph by professor Bumbledorf in action]() and place it in the `images` folder
+- download [this catchy photograph by professor Bumbledorf in action](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/pics/Prof-Bumbledorf.png) and place it in the `images` folder
 
 ```{r, out.width="70%", fig.align='center', echo = F}
 knitr::include_graphics("pics/Prof-Bumbledorf.png")
