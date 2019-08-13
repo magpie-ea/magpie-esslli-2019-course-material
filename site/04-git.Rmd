@@ -20,7 +20,7 @@ Ideally, you document (if only for your future self) which folder contains what,
 
 ## Minimal `git`
 
-On top of a clean, and well documented folder structure, using a **version control system** is an excellent idea to boost efficient cooperation (once more: including cooperation with your future self). A currently very popular instance of VC is `git`. There are many great introductions to `git`, textbased and videos. Have your pick! There are GUIs and Apps for your smartphone. That's impressive, but I recommend using the command line, or built-in functions in your favorite text editor.
+On top of a clean, and well documented folder structure, using a **version control system** is an excellent idea to boost efficient cooperation (once more: including cooperation with your future self). A currently very popular instance of VC is `git`. There are many great introductions to `git`, text-based and videos. Have your pick! There are GUIs and Apps for your smartphone. That's impressive, but I recommend using the command line, or built-in functions in your favorite text editor.
 
 The most important thing you need to know about `git` for this course, is that `git` keeps a remote copy and as many local copies as you want of the complete history of your project, called **repository**. When you make changes locally during your work, you first tell your local repository that these changes are to stay for good: you "commit to them". When you start working you first "synchronize" your local copy of the repository with the remote, by "pulling" the latest changes to your own machine.
 
@@ -30,7 +30,7 @@ For this course, we will really only need the basic commands:
 - `git pull` :: to "update" your local copy, e.g., after others have made changes
 - `git add` :: to stage changes or files for the next commit
 - `git commit` :: to, well, commit yourself to the currently staged changes
-- `git push` :: to to "upload" your changes, so others can pull them
+- `git push` :: to "upload" your changes, so others can pull them
 
 The basic workflow and its main concepts are summarized here:
 
