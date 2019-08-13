@@ -13,7 +13,7 @@ description: "This is the material for a course on implementation, design and de
 
 # About this book
 
-Experimental work is hard. Opportunities for suboptimality and failure abound. This course is all about avoiding pitfalls and cultivating a mindset aimed at continually improving practices. We will execute the whole process of implementation, execution and data analysis during this course, based on a replication of an existing experiment, which we will preregister. We do this using [\_magpie](https://magpie-ea.github.io/magpie-site/index.html), an architecture to help realize browser-based experiments.
+Experimental work is hard. Opportunities for suboptimality and failure abound. This course is all about avoiding pitfalls and cultivating a mindset aimed at continually improving practices. We will execute the whole process of implementation, preregistration, execution and data analysis during this course, based on a replication of a previous study. We do this using [\_magpie](https://magpie-ea.github.io/magpie-site/index.html), an architecture to help realize browser-based experiments.
 
 This is the material for [a course](https://magpie-ea.github.io/magpie-esslli-2019-course-material/) taught at [ESSLLI 2019](https://esslli2019.folli.info) (Riga, Latvia).
 
