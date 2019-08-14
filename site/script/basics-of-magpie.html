@@ -249,7 +249,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>“We can be 95 % confident that the true mean lies between 0.1 and 0.4.”,</p></li>
 <li><p>“If we were to repeat the experiment over and over, then 95 % of the time the true mean falls between 0.1 and 0.4.”</p></li>
 </ul>
-<p>The problem is: where / how should we add these statements with the simple template that we are using? Ideally they should appear between the question and the repsonse buttons. Ideally, the statements should be highlighted, e.g., in bold. Can you think of a creative solution? (Hint: you can include HTML code in the strings given to fields like <code>question</code> etc.) The solution is in this footnote.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<p>The problem is: where / how should we add these statements with the simple template that we are using? Ideally they should appear between the question and the repsonse buttons. Ideally, the statements should be highlighted, e.g., in bold. Can you think of a creative solution? (Hint: you can include HTML code in the strings given to fields like <code>question</code> etc.) The solution is in this footnote.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 <p>Finally, also add an item number to each trial, i.e., consecutively number each question by inserting, for example <code>item: 1</code> for the first question, <code>item: 2</code> for the second, etc.</p>
 </div>
 <div id="adding-another-view" class="section level3">
@@ -319,8 +319,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="footnotes">
 <hr />
-<ol start="1">
-<li id="fn1"><p>You can write it like this: <code>question: &quot;Is the following statement a valid conclusion to draw from Prof. Bumbledorf's result, given the definition of a 'confidence interval'? &lt;br&gt;&lt;br&gt; &lt;strong&gt;The probability that the true mean is greater than 0 is at least 95%.&lt;/strong&gt;&quot;</code><a href="basics-of-magpie.html#fnref1" class="footnote-back">↩</a></p></li>
+<ol start="2">
+<li id="fn2"><p>You can write it like this: <code>question: &quot;Is the following statement a valid conclusion to draw from Prof. Bumbledorf's result, given the definition of a 'confidence interval'? &lt;br&gt;&lt;br&gt; &lt;strong&gt;The probability that the true mean is greater than 0 is at least 95%.&lt;/strong&gt;&quot;</code><a href="basics-of-magpie.html#fnref2" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -377,6 +377,19 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

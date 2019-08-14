@@ -59,7 +59,9 @@ knitr::include_graphics('pics/Douven-Verbrugge-2010-Fig2.png')
 
 ## Replication of @DouvenVerbrugge2010:The-Adams-famil
 
-The following is an example preregistration report, a version of which is also available online 
+Here is an example of a [preregistration report]('materials/prereg_report_Adams.pdf'), together with the [pre-registered analysis file](materials/data_analysis.R) and the [pilot data](materials/pilot_data.csv).
+
+The experiment can be inspected [here](https://magpie-exp-adams-family.netlify.com).
 
 
 
