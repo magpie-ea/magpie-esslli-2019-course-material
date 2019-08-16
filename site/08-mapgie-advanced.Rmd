@@ -1,5 +1,27 @@
 # Advanced features of _magpie
 
+In this section we will play around with various ways of customizing \_magpie experiments. To do this, we will use our first example frome before, on the interpretation of "confidence intervals", which you can clone from [here](https://github.com/magpie-ea/magpie-confidence-interval-interpretation). The following exercises all modify this experiment in different (not necessarily particularly reasonable) ways. The results of all this customization are also in the `customization_exercises` branch in the repository linked above.
+
+## Changing the CSS styles
+
+Make the picture of Prof. Bumbledorf smaller, by overwriting the default CSS in file `01_custom_styles.css`.
+
+## Customize the post-survey enquette
+
+Create a custom view for the post-survey screen that includes an additional question, e.g., "Have you taken this survey before?" with a dropdown menu with options "yes", "no" and "maybe".
+
+Make sure that the data from this added field also shows up in the output in the final data table!
+
+## Add a short pause between trials
+
+Add a short 1 second pause between each main trial.
+
+## Add a response check
+
+Add a function (using a hook for `after_response_enabled`) to tell participants whether their answer was correct or not.
+
+
+
 - life cycles & hooks
 - custom views
 
