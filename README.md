@@ -9,7 +9,7 @@ session | topic | material
 Mon, Aug 11 | open science, git, and \_magpie  | lecture notes Chapters [2](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/empirical-research.html), [3](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/countermeasures.html), and [4](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/version-control-with-git.html)
 Tue, Aug 12 | \_magpie basics | lecture notes Chapter [5](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/basics-of-magpie.html), [quick start guide](https://magpie-ea.github.io/magpie-site/experiments/introduction.html)
 Wed, Aug 13 | case study (on conditionals) | lecture notes Chapter [6](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/case-study-on-acceptability-of-indicative-conditionals.html), [Douven & Verbrugge (2010)](https://www.researchgate.net/publication/47509272_The_Adams_family)
-Thu, Aug 14 | results from the replication study  | [6](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/case-study-on-acceptability-of-indicative-conditionals.html) 
+Thu, Aug 14 | results from the replication study  | Lecture notes chapter [6.3](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/case-study-on-acceptability-of-indicative-conditionals.html#replication-of-douvenverbrugge2010the-adams-famil) 
 Fri, Aug 15 | deployment and advanced features of \_magpie | lecture notes Chapter [7](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/deployment-of-magpie-experiments.html), [8](https://magpie-ea.github.io/magpie-esslli-2019-course-material/site/script/advanced-features-of-magpie.html)
 
 
