@@ -127,14 +127,14 @@ d = d %>%
   
 message("Remove data from ", 
         filter(d, trial_too_fast == T) %>% nrow(), 
-        " trial for being too fast.")
+        " trials for being too fast.")
 
 d = filter(d, subj_too_fast == F)
 ```
 
 We can plot the average data similar for visual inspection in parallel to the above figure from the original paper:
 
-```{r}
+```{r, echo = T}
 #######################################
 ## plot average ratings
 #######################################
@@ -143,9 +143,42 @@ We can plot the average data similar for visual inspection in parallel to the ab
 d_means = d %>% group_by(rating, cond_type) %>% 
   summarize(response = mean(response))
 
-d_means %>% ggplot(aes(x = cond_type, y = response, fill = rating)) +
-  geom_bar(stat = "identity", position = "dodge") 
+d_means_item = d %>% group_by(rating, cond_type, item_nr) %>% 
+  summarize(response = mean(response))
+
+d_means %>% ggplot(aes(x = cond_type, y = response, color = rating)) +
+  geom_point(position = position_dodge(0.5),     alpha = 0.7,   size = 3) +
+  geom_point(data = d_means_item, position = position_dodge(0.5), alpha = 0.3, size = 1) +
+  ylab("mean response\n") +
+  xlab("\ntype of conditional sentence") +
+  theme_classic() +
+  scale_x_discrete(breaks = c("II", "AI", "DI"),
+                   labels = c("inductive", "abductive", "deductive")) +
+  scale_colour_manual(breaks = c("acceptability", "cond_probability"),
+                      labels = c("acceptability", "conditional probability"),
+                      values = c("#f1a340", "#998ec3")) +
+  scale_fill_manual(breaks = c("acceptability", "conditional probability"),
+                      labels = c("acceptability", "conditional probability"),
+                      values = c("#f1a340", "#998ec3")) +
+  theme(legend.position = "right",
+        legend.key.height = unit(2,"line"),
+        legend.title = element_text(size = 18, face = "bold"),
+        legend.text = element_text(size = 16),
+        legend.background = element_rect(fill = "transparent"),
+        strip.background = element_blank(),
+        strip.text = element_text(size = 18, face = "bold"),
+        axis.line.x = element_blank(),
+        panel.spacing = unit(2, "lines"),
+        plot.background = element_rect(fill = "transparent", colour = NA),
+        panel.background = element_rect(fill = "transparent"),
+        axis.text = element_text(size = 16),
+        axis.title = element_text(size = 18, face = "bold"),
+        plot.title = element_text(size = 18, face = "bold"),
+        plot.margin = unit(c(0.2,0.1,0.2,0.1),"cm"))
+  
 ```
+
+The plot shows the means of the given ratings (we (hesitantly) follow the original paper in assuming that taking means is legitimate for this ordinal measure) for each relevant condition in the bigger dots, together with the means for each individual test sentence in the smaller dots. The latter showcases partly the variability in the given ratings.
 
 Visually, it appears that ratings of "acceptability" are always tendetially lower, on average, that ratings of "conditional probability", irrespective of the conditional type, although this (visual!) effect seems smaller in case of deductive conditionals.
 
