@@ -1,7 +1,5 @@
 # Deployment of _magpie experiments
 
-Refer to [\_magpie site](https://magpie-ea.github.io/magpie-site/index.html).
-
 After having developed and tested your experiment in `debug` mode, to deploy an experiment (present it to the public, and collect data), you will usually go through the following steps:
 
 1. create the experiment (where the data should be saved) on an instance of the \_magpie server app, as described [here](https://magpie-ea.github.io/magpie-docs/02_using_the_server_app/02_use/)
