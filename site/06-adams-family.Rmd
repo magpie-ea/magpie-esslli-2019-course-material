@@ -134,7 +134,7 @@ d = filter(d, subj_too_fast == F)
 
 We can plot the average data similar for visual inspection in parallel to the above figure from the original paper:
 
-```{r, echo = T}
+```{r, echo = F}
 #######################################
 ## plot average ratings
 #######################################

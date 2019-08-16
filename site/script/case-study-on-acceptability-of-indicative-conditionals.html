@@ -345,46 +345,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Remove data from 38 trials for being too fast.</code></pre>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">d =<span class="st"> </span><span class="kw">filter</span>(d, subj_too_fast <span class="op">==</span><span class="st"> </span>F)</a></code></pre></div>
 <p>We can plot the average data similar for visual inspection in parallel to the above figure from the original paper:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co">#######################################</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">## plot average ratings</span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#######################################</span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co"># get aggregates</span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6">d_means =<span class="st"> </span>d <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(rating, cond_type) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">response =</span> <span class="kw">mean</span>(response))</a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9">d_means_item =<span class="st"> </span>d <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(rating, cond_type, item_nr) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">response =</span> <span class="kw">mean</span>(response))</a>
-<a class="sourceLine" id="cb8-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb8-12" data-line-number="12">d_means <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> cond_type, <span class="dt">y =</span> response, <span class="dt">color =</span> rating)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-13" data-line-number="13"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="fl">0.5</span>),     <span class="dt">alpha =</span> <span class="fl">0.7</span>,   <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-14" data-line-number="14"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> d_means_item, <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="fl">0.5</span>), <span class="dt">alpha =</span> <span class="fl">0.3</span>, <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-15" data-line-number="15"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;mean response</span><span class="ch">\n</span><span class="st">&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-16" data-line-number="16"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">type of conditional sentence&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-17" data-line-number="17"><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-18" data-line-number="18"><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="st">&quot;II&quot;</span>, <span class="st">&quot;AI&quot;</span>, <span class="st">&quot;DI&quot;</span>),</a>
-<a class="sourceLine" id="cb8-19" data-line-number="19">                   <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;inductive&quot;</span>, <span class="st">&quot;abductive&quot;</span>, <span class="st">&quot;deductive&quot;</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-20" data-line-number="20"><span class="st">  </span><span class="kw">scale_colour_manual</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="st">&quot;acceptability&quot;</span>, <span class="st">&quot;cond_probability&quot;</span>),</a>
-<a class="sourceLine" id="cb8-21" data-line-number="21">                      <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;acceptability&quot;</span>, <span class="st">&quot;conditional probability&quot;</span>),</a>
-<a class="sourceLine" id="cb8-22" data-line-number="22">                      <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#f1a340&quot;</span>, <span class="st">&quot;#998ec3&quot;</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-23" data-line-number="23"><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="st">&quot;acceptability&quot;</span>, <span class="st">&quot;conditional probability&quot;</span>),</a>
-<a class="sourceLine" id="cb8-24" data-line-number="24">                      <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;acceptability&quot;</span>, <span class="st">&quot;conditional probability&quot;</span>),</a>
-<a class="sourceLine" id="cb8-25" data-line-number="25">                      <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#f1a340&quot;</span>, <span class="st">&quot;#998ec3&quot;</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-26" data-line-number="26"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;right&quot;</span>,</a>
-<a class="sourceLine" id="cb8-27" data-line-number="27">        <span class="dt">legend.key.height =</span> <span class="kw">unit</span>(<span class="dv">2</span>,<span class="st">&quot;line&quot;</span>),</a>
-<a class="sourceLine" id="cb8-28" data-line-number="28">        <span class="dt">legend.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">18</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
-<a class="sourceLine" id="cb8-29" data-line-number="29">        <span class="dt">legend.text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>),</a>
-<a class="sourceLine" id="cb8-30" data-line-number="30">        <span class="dt">legend.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill =</span> <span class="st">&quot;transparent&quot;</span>),</a>
-<a class="sourceLine" id="cb8-31" data-line-number="31">        <span class="dt">strip.background =</span> <span class="kw">element_blank</span>(),</a>
-<a class="sourceLine" id="cb8-32" data-line-number="32">        <span class="dt">strip.text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">18</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
-<a class="sourceLine" id="cb8-33" data-line-number="33">        <span class="dt">axis.line.x =</span> <span class="kw">element_blank</span>(),</a>
-<a class="sourceLine" id="cb8-34" data-line-number="34">        <span class="dt">panel.spacing =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;lines&quot;</span>),</a>
-<a class="sourceLine" id="cb8-35" data-line-number="35">        <span class="dt">plot.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill =</span> <span class="st">&quot;transparent&quot;</span>, <span class="dt">colour =</span> <span class="ot">NA</span>),</a>
-<a class="sourceLine" id="cb8-36" data-line-number="36">        <span class="dt">panel.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill =</span> <span class="st">&quot;transparent&quot;</span>),</a>
-<a class="sourceLine" id="cb8-37" data-line-number="37">        <span class="dt">axis.text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>),</a>
-<a class="sourceLine" id="cb8-38" data-line-number="38">        <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">18</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
-<a class="sourceLine" id="cb8-39" data-line-number="39">        <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">18</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
-<a class="sourceLine" id="cb8-40" data-line-number="40">        <span class="dt">plot.margin =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="fl">0.2</span>,<span class="fl">0.1</span>,<span class="fl">0.2</span>,<span class="fl">0.1</span>),<span class="st">&quot;cm&quot;</span>))</a></code></pre></div>
 <p><img src="magpie-esslli-course_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The plot shows the means of the given ratings (we (hesitantly) follow the original paper in assuming that taking means is legitimate for this ordinal measure) for each relevant condition in the bigger dots, together with the means for each individual test sentence in the smaller dots. The latter showcases partly the variability in the given ratings.</p>
 <p>Visually, it appears that ratings of “acceptability” are always tendetially lower, on average, that ratings of “conditional probability”, irrespective of the conditional type, although this (visual!) effect seems smaller in case of deductive conditionals.</p>
@@ -392,25 +352,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="analyses-for-h1" class="section level3">
 <h3><span class="header-section-number">6.3.3</span> Analyses for H1</h3>
 <p>We address H1 with a Bayesian linear hierarchical model:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co">#######################################</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="co">## H1: (near-)identity reading of AT</span></a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="co">#######################################</span></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb9-5" data-line-number="5">fit_h1 =<span class="st"> </span><span class="kw">brm</span>(</a>
-<a class="sourceLine" id="cb9-6" data-line-number="6">  <span class="dt">formula =</span> response <span class="op">~</span><span class="st"> </span>rating <span class="op">*</span><span class="st"> </span>cond_type <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="st">    </span>(<span class="dv">1</span> <span class="op">|</span><span class="st"> </span>submission_id <span class="op">+</span><span class="st"> </span>item_nr),</a>
-<a class="sourceLine" id="cb9-8" data-line-number="8">  <span class="dt">data =</span> d <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">cond_type =</span> <span class="kw">case_when</span>(condition <span class="op">==</span><span class="st"> &quot;AI&quot;</span> <span class="op">~</span><span class="st"> &quot;x_AI&quot;</span>,</a>
-<a class="sourceLine" id="cb9-9" data-line-number="9">                                            condition <span class="op">==</span><span class="st"> &quot;II&quot;</span> <span class="op">~</span><span class="st"> &quot;x_II&quot;</span>,</a>
-<a class="sourceLine" id="cb9-10" data-line-number="10">                                            <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> &quot;DI&quot;</span>)),</a>
-<a class="sourceLine" id="cb9-11" data-line-number="11">  <span class="dt">prior =</span> <span class="kw">c</span>(<span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="dt">class =</span> b))</a>
-<a class="sourceLine" id="cb9-12" data-line-number="12">)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co">#######################################</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">## H1: (near-)identity reading of AT</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#######################################</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">fit_h1 =<span class="st"> </span><span class="kw">brm</span>(</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">  <span class="dt">formula =</span> response <span class="op">~</span><span class="st"> </span>rating <span class="op">*</span><span class="st"> </span>cond_type <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="st">    </span>(<span class="dv">1</span> <span class="op">|</span><span class="st"> </span>submission_id <span class="op">+</span><span class="st"> </span>item_nr),</a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">  <span class="dt">data =</span> d <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">cond_type =</span> <span class="kw">case_when</span>(condition <span class="op">==</span><span class="st"> &quot;AI&quot;</span> <span class="op">~</span><span class="st"> &quot;x_AI&quot;</span>,</a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">                                            condition <span class="op">==</span><span class="st"> &quot;II&quot;</span> <span class="op">~</span><span class="st"> &quot;x_II&quot;</span>,</a>
+<a class="sourceLine" id="cb8-10" data-line-number="10">                                            <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> &quot;DI&quot;</span>)),</a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">  <span class="dt">prior =</span> <span class="kw">c</span>(<span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="dt">class =</span> b))</a>
+<a class="sourceLine" id="cb8-12" data-line-number="12">)</a></code></pre></div>
 <p>To test H1, we are interested in a main effect of the RATING manipulation:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># check for main effect of RATING factor</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">faintr<span class="op">::</span><span class="kw">compare_groups</span>(</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">  <span class="dt">model =</span> fit_h1,</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">  <span class="dt">lower =</span> <span class="kw">list</span>(<span class="dt">rating =</span> <span class="st">&quot;acceptability&quot;</span>),</a>
-<a class="sourceLine" id="cb10-5" data-line-number="5">  <span class="dt">higher =</span> <span class="kw">list</span>(<span class="dt">rating =</span> <span class="st">&quot;cond_probability&quot;</span>)</a>
-<a class="sourceLine" id="cb10-6" data-line-number="6">)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># check for main effect of RATING factor</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">faintr<span class="op">::</span><span class="kw">compare_groups</span>(</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">  <span class="dt">model =</span> fit_h1,</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">  <span class="dt">lower =</span> <span class="kw">list</span>(<span class="dt">rating =</span> <span class="st">&quot;acceptability&quot;</span>),</a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">  <span class="dt">higher =</span> <span class="kw">list</span>(<span class="dt">rating =</span> <span class="st">&quot;cond_probability&quot;</span>)</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">)</a></code></pre></div>
 <pre><code>## Outcome of comparing groups:
 ##  * higher:  rating:cond_probability 
 ##  * lower:   rating:acceptability 
@@ -419,36 +379,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## P(&#39;higher - lower&#39; &gt; 0):  1</code></pre>
 <p>This result tells us that our posterior belief, given model and data, that the ratings of “conditional probability” are higher should be approximately 1 (after numerical rounding).</p>
 <p>We compare the posteriors on estimated means also for each type of conditional individually:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># deductive</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">faintr<span class="op">::</span><span class="kw">compare_groups</span>(</a>
-<a class="sourceLine" id="cb12-3" data-line-number="3">  <span class="dt">model =</span> fit_h1,</a>
-<a class="sourceLine" id="cb12-4" data-line-number="4">  <span class="dt">lower =</span> <span class="kw">list</span>(<span class="dt">rating =</span> <span class="st">&quot;acceptability&quot;</span>, <span class="dt">cond_type =</span> <span class="st">&quot;DI&quot;</span>),</a>
-<a class="sourceLine" id="cb12-5" data-line-number="5">  <span class="dt">higher =</span> <span class="kw">list</span>(<span class="dt">rating =</span> <span class="st">&quot;cond_probability&quot;</span>, <span class="dt">cond_type =</span> <span class="st">&quot;DI&quot;</span>)</a>
-<a class="sourceLine" id="cb12-6" data-line-number="6">)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># deductive</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">faintr<span class="op">::</span><span class="kw">compare_groups</span>(</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">  <span class="dt">model =</span> fit_h1,</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">  <span class="dt">lower =</span> <span class="kw">list</span>(<span class="dt">rating =</span> <span class="st">&quot;acceptability&quot;</span>, <span class="dt">cond_type =</span> <span class="st">&quot;DI&quot;</span>),</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">  <span class="dt">higher =</span> <span class="kw">list</span>(<span class="dt">rating =</span> <span class="st">&quot;cond_probability&quot;</span>, <span class="dt">cond_type =</span> <span class="st">&quot;DI&quot;</span>)</a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">)</a></code></pre></div>
 <pre><code>## Outcome of comparing groups:
 ##  * higher:  rating:cond_probability cond_type:DI 
 ##  * lower:   rating:acceptability cond_type:DI 
 ## Mean &#39;higher - lower&#39;:  0.2351 
 ## 95% CI: [ 0.01332 ; 0.4224 ]
 ## P(&#39;higher - lower&#39; &gt; 0):  0.9878</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co"># abductive</span></a>
-<a class="sourceLine" id="cb14-2" data-line-number="2">faintr<span class="op">::</span><span class="kw">compare_groups</span>(</a>
-<a class="sourceLine" id="cb14-3" data-line-number="3">  <span class="dt">model =</span> fit_h1,</a>
-<a class="sourceLine" id="cb14-4" data-line-number="4">  <span class="dt">lower =</span> <span class="kw">list</span>(<span class="dt">rating =</span> <span class="st">&quot;acceptability&quot;</span>, <span class="dt">cond_type =</span> <span class="st">&quot;x_AI&quot;</span>),</a>
-<a class="sourceLine" id="cb14-5" data-line-number="5">  <span class="dt">higher =</span> <span class="kw">list</span>(<span class="dt">rating =</span> <span class="st">&quot;cond_probability&quot;</span>, <span class="dt">cond_type =</span> <span class="st">&quot;x_AI&quot;</span>)</a>
-<a class="sourceLine" id="cb14-6" data-line-number="6">)</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co"># abductive</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">faintr<span class="op">::</span><span class="kw">compare_groups</span>(</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">  <span class="dt">model =</span> fit_h1,</a>
+<a class="sourceLine" id="cb13-4" data-line-number="4">  <span class="dt">lower =</span> <span class="kw">list</span>(<span class="dt">rating =</span> <span class="st">&quot;acceptability&quot;</span>, <span class="dt">cond_type =</span> <span class="st">&quot;x_AI&quot;</span>),</a>
+<a class="sourceLine" id="cb13-5" data-line-number="5">  <span class="dt">higher =</span> <span class="kw">list</span>(<span class="dt">rating =</span> <span class="st">&quot;cond_probability&quot;</span>, <span class="dt">cond_type =</span> <span class="st">&quot;x_AI&quot;</span>)</a>
+<a class="sourceLine" id="cb13-6" data-line-number="6">)</a></code></pre></div>
 <pre><code>## Outcome of comparing groups:
 ##  * higher:  rating:cond_probability cond_type:x_AI 
 ##  * lower:   rating:acceptability cond_type:x_AI 
 ## Mean &#39;higher - lower&#39;:  0.4552 
 ## 95% CI: [ 0.2465 ; 0.6431 ]
 ## P(&#39;higher - lower&#39; &gt; 0):  1</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="co"># inductive</span></a>
-<a class="sourceLine" id="cb16-2" data-line-number="2">faintr<span class="op">::</span><span class="kw">compare_groups</span>(</a>
-<a class="sourceLine" id="cb16-3" data-line-number="3">  <span class="dt">model =</span> fit_h1,</a>
-<a class="sourceLine" id="cb16-4" data-line-number="4">  <span class="dt">lower =</span> <span class="kw">list</span>(<span class="dt">rating =</span> <span class="st">&quot;acceptability&quot;</span>, <span class="dt">cond_type =</span> <span class="st">&quot;x_II&quot;</span>),</a>
-<a class="sourceLine" id="cb16-5" data-line-number="5">  <span class="dt">higher =</span> <span class="kw">list</span>(<span class="dt">rating =</span> <span class="st">&quot;cond_probability&quot;</span>, <span class="dt">cond_type =</span> <span class="st">&quot;x_II&quot;</span>)</a>
-<a class="sourceLine" id="cb16-6" data-line-number="6">)</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co"># inductive</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">faintr<span class="op">::</span><span class="kw">compare_groups</span>(</a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">  <span class="dt">model =</span> fit_h1,</a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">  <span class="dt">lower =</span> <span class="kw">list</span>(<span class="dt">rating =</span> <span class="st">&quot;acceptability&quot;</span>, <span class="dt">cond_type =</span> <span class="st">&quot;x_II&quot;</span>),</a>
+<a class="sourceLine" id="cb15-5" data-line-number="5">  <span class="dt">higher =</span> <span class="kw">list</span>(<span class="dt">rating =</span> <span class="st">&quot;cond_probability&quot;</span>, <span class="dt">cond_type =</span> <span class="st">&quot;x_II&quot;</span>)</a>
+<a class="sourceLine" id="cb15-6" data-line-number="6">)</a></code></pre></div>
 <pre><code>## Outcome of comparing groups:
 ##  * higher:  rating:cond_probability cond_type:x_II 
 ##  * lower:   rating:acceptability cond_type:x_II 
@@ -460,25 +420,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="analyses-for-h2" class="section level3">
 <h3><span class="header-section-number">6.3.4</span> Analyses for H2</h3>
 <p>We first aggregate the data, looking at the average ratings for each sentence for each type of RATING.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="co"># correlation analysis</span></a>
-<a class="sourceLine" id="cb18-2" data-line-number="2">d_cor =<span class="st"> </span>d <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(item_nr, cond_type, rating) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">response =</span> <span class="kw">mean</span>(response)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb18-4" data-line-number="4"><span class="st">  </span><span class="kw">spread</span>(<span class="dt">key =</span> <span class="st">&quot;rating&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;response&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb18-5" data-line-number="5"><span class="st">  </span><span class="kw">ungroup</span>()</a>
-<a class="sourceLine" id="cb18-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb18-7" data-line-number="7"><span class="co"># plot the correlation</span></a>
-<a class="sourceLine" id="cb18-8" data-line-number="8">d_cor <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> acceptability, <span class="dt">y =</span> cond_probability, <span class="dt">color =</span> cond_type)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb18-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co"># correlation analysis</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">d_cor =<span class="st"> </span>d <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(item_nr, cond_type, rating) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">response =</span> <span class="kw">mean</span>(response)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb17-4" data-line-number="4"><span class="st">  </span><span class="kw">spread</span>(<span class="dt">key =</span> <span class="st">&quot;rating&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;response&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb17-5" data-line-number="5"><span class="st">  </span><span class="kw">ungroup</span>()</a>
+<a class="sourceLine" id="cb17-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb17-7" data-line-number="7"><span class="co"># plot the correlation</span></a>
+<a class="sourceLine" id="cb17-8" data-line-number="8">d_cor <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> acceptability, <span class="dt">y =</span> cond_probability, <span class="dt">color =</span> cond_type)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb17-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</a></code></pre></div>
 <p><img src="magpie-esslli-course_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>To test whether there is, in general, a positive correlation between “acceptability” and “conditional probability” ratings for each sentence, we run a linear regression model based on all data first:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co"># all data</span></a>
-<a class="sourceLine" id="cb19-2" data-line-number="2">fit_h2 =<span class="st"> </span><span class="kw">brm</span>(</a>
-<a class="sourceLine" id="cb19-3" data-line-number="3">  <span class="dt">formula =</span> acceptability <span class="op">~</span><span class="st"> </span>cond_probability,</a>
-<a class="sourceLine" id="cb19-4" data-line-number="4">  <span class="dt">data =</span> d_cor,</a>
-<a class="sourceLine" id="cb19-5" data-line-number="5">  <span class="dt">prior =</span> <span class="kw">c</span>(<span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="dt">class =</span> b),</a>
-<a class="sourceLine" id="cb19-6" data-line-number="6">            <span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">1</span>, <span class="dv">10</span>), <span class="dt">coef =</span> <span class="st">&quot;cond_probability&quot;</span>))</a>
-<a class="sourceLine" id="cb19-7" data-line-number="7">)</a></code></pre></div>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">summary</span>(fit_h2)</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="co"># all data</span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">fit_h2 =<span class="st"> </span><span class="kw">brm</span>(</a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">  <span class="dt">formula =</span> acceptability <span class="op">~</span><span class="st"> </span>cond_probability,</a>
+<a class="sourceLine" id="cb18-4" data-line-number="4">  <span class="dt">data =</span> d_cor,</a>
+<a class="sourceLine" id="cb18-5" data-line-number="5">  <span class="dt">prior =</span> <span class="kw">c</span>(<span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="dt">class =</span> b),</a>
+<a class="sourceLine" id="cb18-6" data-line-number="6">            <span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">1</span>, <span class="dv">10</span>), <span class="dt">coef =</span> <span class="st">&quot;cond_probability&quot;</span>))</a>
+<a class="sourceLine" id="cb18-7" data-line-number="7">)</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">summary</span>(fit_h2)</a></code></pre></div>
 <pre><code>##  Family: gaussian 
 ##   Links: mu = identity; sigma = identity 
 ## Formula: acceptability ~ cond_probability 
@@ -500,14 +460,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <p>We find a 95% credible interval for the slope coefficient (called <code>cond_probability</code> in the summary table) with a lower bound of 1.09, suggesting clearly a positive overall correlation.</p>
 <p>To test H2-types, we look at the data from each type of conditional sentence separatedly.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># deductive conditionals</span></a>
-<a class="sourceLine" id="cb22-2" data-line-number="2">fit_h2_type_DI =<span class="st"> </span><span class="kw">brm</span>(</a>
-<a class="sourceLine" id="cb22-3" data-line-number="3">  <span class="dt">formula =</span> acceptability <span class="op">~</span><span class="st"> </span>cond_probability,</a>
-<a class="sourceLine" id="cb22-4" data-line-number="4">  <span class="dt">data =</span> d_cor <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(cond_type <span class="op">==</span><span class="st"> &quot;DI&quot;</span>),</a>
-<a class="sourceLine" id="cb22-5" data-line-number="5">  <span class="dt">prior =</span> <span class="kw">c</span>(<span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="dt">class =</span> b),</a>
-<a class="sourceLine" id="cb22-6" data-line-number="6">            <span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">1</span>, <span class="dv">10</span>), <span class="dt">coef =</span> <span class="st">&quot;cond_probability&quot;</span>))</a>
-<a class="sourceLine" id="cb22-7" data-line-number="7">)</a></code></pre></div>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw">summary</span>(fit_h2_type_DI)</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="co"># deductive conditionals</span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2">fit_h2_type_DI =<span class="st"> </span><span class="kw">brm</span>(</a>
+<a class="sourceLine" id="cb21-3" data-line-number="3">  <span class="dt">formula =</span> acceptability <span class="op">~</span><span class="st"> </span>cond_probability,</a>
+<a class="sourceLine" id="cb21-4" data-line-number="4">  <span class="dt">data =</span> d_cor <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(cond_type <span class="op">==</span><span class="st"> &quot;DI&quot;</span>),</a>
+<a class="sourceLine" id="cb21-5" data-line-number="5">  <span class="dt">prior =</span> <span class="kw">c</span>(<span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="dt">class =</span> b),</a>
+<a class="sourceLine" id="cb21-6" data-line-number="6">            <span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">1</span>, <span class="dv">10</span>), <span class="dt">coef =</span> <span class="st">&quot;cond_probability&quot;</span>))</a>
+<a class="sourceLine" id="cb21-7" data-line-number="7">)</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">summary</span>(fit_h2_type_DI)</a></code></pre></div>
 <pre><code>##  Family: gaussian 
 ##   Links: mu = identity; sigma = identity 
 ## Formula: acceptability ~ cond_probability 
@@ -527,14 +487,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Samples were drawn using sampling(NUTS). For each parameter, Eff.Sample 
 ## is a crude measure of effective sample size, and Rhat is the potential 
 ## scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="co"># abuctive conditionals</span></a>
-<a class="sourceLine" id="cb25-2" data-line-number="2">fit_h2_type_AI =<span class="st"> </span><span class="kw">brm</span>(</a>
-<a class="sourceLine" id="cb25-3" data-line-number="3">  <span class="dt">formula =</span> acceptability <span class="op">~</span><span class="st"> </span>cond_probability,</a>
-<a class="sourceLine" id="cb25-4" data-line-number="4">  <span class="dt">data =</span> d_cor <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(cond_type <span class="op">==</span><span class="st"> &quot;AI&quot;</span>),</a>
-<a class="sourceLine" id="cb25-5" data-line-number="5">  <span class="dt">prior =</span> <span class="kw">c</span>(<span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="dt">class =</span> b),</a>
-<a class="sourceLine" id="cb25-6" data-line-number="6">            <span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">1</span>, <span class="dv">10</span>), <span class="dt">coef =</span> <span class="st">&quot;cond_probability&quot;</span>))</a>
-<a class="sourceLine" id="cb25-7" data-line-number="7">)</a></code></pre></div>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">summary</span>(fit_h2_type_AI)</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="co"># abuctive conditionals</span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2">fit_h2_type_AI =<span class="st"> </span><span class="kw">brm</span>(</a>
+<a class="sourceLine" id="cb24-3" data-line-number="3">  <span class="dt">formula =</span> acceptability <span class="op">~</span><span class="st"> </span>cond_probability,</a>
+<a class="sourceLine" id="cb24-4" data-line-number="4">  <span class="dt">data =</span> d_cor <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(cond_type <span class="op">==</span><span class="st"> &quot;AI&quot;</span>),</a>
+<a class="sourceLine" id="cb24-5" data-line-number="5">  <span class="dt">prior =</span> <span class="kw">c</span>(<span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="dt">class =</span> b),</a>
+<a class="sourceLine" id="cb24-6" data-line-number="6">            <span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">1</span>, <span class="dv">10</span>), <span class="dt">coef =</span> <span class="st">&quot;cond_probability&quot;</span>))</a>
+<a class="sourceLine" id="cb24-7" data-line-number="7">)</a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw">summary</span>(fit_h2_type_AI)</a></code></pre></div>
 <pre><code>##  Family: gaussian 
 ##   Links: mu = identity; sigma = identity 
 ## Formula: acceptability ~ cond_probability 
@@ -554,14 +514,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Samples were drawn using sampling(NUTS). For each parameter, Eff.Sample 
 ## is a crude measure of effective sample size, and Rhat is the potential 
 ## scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="co"># inductive conditionals</span></a>
-<a class="sourceLine" id="cb28-2" data-line-number="2">fit_h2_type_II =<span class="st"> </span><span class="kw">brm</span>(</a>
-<a class="sourceLine" id="cb28-3" data-line-number="3">  <span class="dt">formula =</span> acceptability <span class="op">~</span><span class="st"> </span>cond_probability,</a>
-<a class="sourceLine" id="cb28-4" data-line-number="4">  <span class="dt">data =</span> d_cor <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(cond_type <span class="op">==</span><span class="st"> &quot;II&quot;</span>),</a>
-<a class="sourceLine" id="cb28-5" data-line-number="5">  <span class="dt">prior =</span> <span class="kw">c</span>(<span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="dt">class =</span> b),</a>
-<a class="sourceLine" id="cb28-6" data-line-number="6">            <span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">1</span>, <span class="dv">10</span>), <span class="dt">coef =</span> <span class="st">&quot;cond_probability&quot;</span>))</a>
-<a class="sourceLine" id="cb28-7" data-line-number="7">)</a></code></pre></div>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw">summary</span>(fit_h2_type_II)</a></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="co"># inductive conditionals</span></a>
+<a class="sourceLine" id="cb27-2" data-line-number="2">fit_h2_type_II =<span class="st"> </span><span class="kw">brm</span>(</a>
+<a class="sourceLine" id="cb27-3" data-line-number="3">  <span class="dt">formula =</span> acceptability <span class="op">~</span><span class="st"> </span>cond_probability,</a>
+<a class="sourceLine" id="cb27-4" data-line-number="4">  <span class="dt">data =</span> d_cor <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(cond_type <span class="op">==</span><span class="st"> &quot;II&quot;</span>),</a>
+<a class="sourceLine" id="cb27-5" data-line-number="5">  <span class="dt">prior =</span> <span class="kw">c</span>(<span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="dt">class =</span> b),</a>
+<a class="sourceLine" id="cb27-6" data-line-number="6">            <span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">1</span>, <span class="dv">10</span>), <span class="dt">coef =</span> <span class="st">&quot;cond_probability&quot;</span>))</a>
+<a class="sourceLine" id="cb27-7" data-line-number="7">)</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="kw">summary</span>(fit_h2_type_II)</a></code></pre></div>
 <pre><code>##  Family: gaussian 
 ##   Links: mu = identity; sigma = identity 
 ## Formula: acceptability ~ cond_probability 
