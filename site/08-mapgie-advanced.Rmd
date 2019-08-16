@@ -20,9 +20,3 @@ Add a short 1 second pause between each main trial.
 
 Add a function (using a hook for `after_response_enabled`) to tell participants whether their answer was correct or not.
 
-
-
-- life cycles & hooks
-- custom views
-
-

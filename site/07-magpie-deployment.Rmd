@@ -1,3 +1,15 @@
 # Deployment of _magpie experiments
 
 Refer to [\_magpie site](https://magpie-ea.github.io/magpie-site/index.html).
+
+After having developed and tested your experiment in `debug` mode, to deploy an experiment (present it to the public, and collect data), you will usually go through the following steps:
+
+1. create the experiment (where the data should be saved) on an instance of the \_magpie server app, as described [here](https://magpie-ea.github.io/magpie-docs/02_using_the_server_app/02_use/)
+2. configure the deploy information in file `06_main.js` as described [here](https://magpie-ea.github.io/magpie-site/experiments/08config.html)
+  - NB: if you are using Prolific, you need to input the completion code as described [here](https://magpie-ea.github.io/magpie-docs/03_deploying_experiments/03_recruitment_Prolific/)
+3. commit your changes to git
+4. host the website to obtain a public URL, e.g., by using [netlify](https://www.netlify.com), as described [here](https://magpie-ea.github.io/magpie-docs/03_deploying_experiments/04_hosting_on_netlify/)
+5. recruit participants, by
+  - sending out a link or inviting people into the lab
+  - use Prolific's interface (where you enter the URL and complete submission of the experiment)
+  - post the experiment on MTurk, e.g., using the procedure described [here](https://magpie-ea.github.io/magpie-docs/03_deploying_experiments/02_recruitment_MTurk/)
